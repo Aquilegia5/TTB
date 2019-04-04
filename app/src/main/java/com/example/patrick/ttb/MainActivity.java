@@ -52,10 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setMessage((5-counter) + " tries left.");
                     builder.show();
+                    user.setText("");
+                    pass.setText("");
                 }
-
-                user.setText("");
-                pass.setText("");
                 break;
             default: break;
         }

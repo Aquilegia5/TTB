@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TTB</string>
+    <string name="title_activity_notes">Notes</string>
+    <string name="title_activity_notesmain">notesmain</string>
+    <string name="title_activity_mainnotes">mainnotes</string>
+    <string name="title_activity_test1">test1</string>
 </resources>

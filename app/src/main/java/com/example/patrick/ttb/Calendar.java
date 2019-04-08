@@ -9,6 +9,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,7 +32,7 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener 
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                date = dayOfMonth + "/" + month + "/" + year;
+                date = dayOfMonth + "." + (month+1) + "." + year;
             }
         });
         ntbtn.setOnClickListener(this);
@@ -51,10 +52,9 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener 
                 if(date == null) {
                     long val = cv.getDate();
                     Date date2 = new Date(val);
-                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat df = new SimpleDateFormat("d.M.yyyy");
                     String dateText = df.format(date2);
                     date = dateText;
-
                 }
                 i.putExtra("date", date);
                 startActivity(i);

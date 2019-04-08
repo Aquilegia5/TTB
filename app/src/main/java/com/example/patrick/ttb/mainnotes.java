@@ -35,13 +35,16 @@ public class mainnotes extends AppCompatActivity {
         passedDate = getIntent().getExtras().getString("date");
 
         setTitle(passedDate);
+        if(FileExists(passedDate)) {
+           editText1.setText(Open(passedDate));
+        }
         //Ende
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Save(filename);
+                Save(passedDate);
             }
         });
 
@@ -52,7 +55,7 @@ public class mainnotes extends AppCompatActivity {
         try {
             OutputStreamWriter out =
                     new OutputStreamWriter(openFileOutput(fileName, 0));
-            out.write(editText1.toString());
+            out.write(editText1.getText().toString());
             out.close();
             Toast.makeText(this, "Note Saved!", Toast.LENGTH_SHORT).show();
         } catch (Throwable t) {
